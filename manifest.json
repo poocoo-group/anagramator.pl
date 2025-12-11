@@ -1,0 +1,21 @@
+{
+  "name": "Anagramator - Wyszukiwarka Słów z Liter",
+  "short_name": "Anagramator",
+  "description": "Błyskawiczne wyszukiwanie słów z liter. Baza 3,3 mln słów polskich.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a1a1a",
+  "theme_color": "#1a1a1a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "poocoo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "lang": "pl-PL",
+  "dir": "ltr",
+  "categories": ["utilities", "education"]
+}

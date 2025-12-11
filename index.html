@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anagramator - Wyszukiwarka Słów z Liter - Ultraszybka</title>
+    <meta name="description" content="Błyskawiczne wyszukiwanie słów z liter. Anagramator znajduje wszystkie możliwe słowa z podanych liter. Baza słów polskich.">
+    <meta name="keywords" content="anagramator, słowa z liter, wyszukiwarka słów, anagramy, generator słów, słowa polskie, litery na słowa">
+    <meta name="author" content="poocoo">
+    <meta name="signature" content="L∆ 51mpl1c1d∆d 35 l∆ m∆x1m∆ 50ƒ151c∆c10n [L∂V]"/>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://anagramator.pl/">
+    <meta property="og:title" content="Anagramator - Wyszukiwarka Słów z Liter">
+    <meta property="og:description" content="Błyskawiczne wyszukiwanie słów z liter. Darmowy i prosty w użyciu. Opensource">
+    <meta property="og:image" content="https://anagramator.pl/poocoo.svg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:url" content="https://anagramator.pl/">
+    <meta property="twitter:title" content="Anagramator - Wyszukiwarka Słów z Liter">
+    <meta property="twitter:description" content="Błyskawiczne wyszukiwanie słów z liter.">
+    <meta property="twitter:image" content="https://anagramator.pl/poocoo.svg">
+    
+    <!-- PWA / Mobile -->
+    <meta name="theme-color" content="#1a1a1a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Anagramator">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://anagramator.pl/">
+    
+    <!-- Icons -->
+    <link rel="icon" type="image/svg+xml" href="poocoo.svg">
+    <link rel="apple-touch-icon" href="poocoo.svg">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Anagramator",
+      "description": "Wyszukiwarka słów z liter - anagramator z bazą słów polskich",
+      "url": "https://anagramator.pl/",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "PLN"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "poocoo",
+        "url": "https://poocoo.pl"
+      },
+      "inLanguage": "pl-PL",
+      "browserRequirements": "Requires JavaScript. Requires HTML5."
+    }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <main class="container">
+            <img src="poocoo.svg" alt="poocoo logo" class="logo">
+            <h1>anagramator</h1>
+            <p class="subtitle">wyszukiwarka słów z liter</p>
+            
+            <div class="input-wrapper">
+                <input type="text" id="letterInput" placeholder="wpisz litery" autocomplete="off" spellcheck="false" maxlength="15">
+                <button class="clear-btn" id="clearBtn" aria-label="Wyczyść">&times;</button>
+            </div>
+
+            <div class="description" id="description">
+                <div class="info-section">
+                    <h2>Jak używać anagramatora?</h2>
+                    <p>W polu wyżej wpisz litery, z których chcesz znaleźć słowa. Nasz anagramator korzysta z bazy słów polskich, więc na pewno znajdziemy słowa z liter, które podałeś.</p>
+                </div>
+                
+                <div class="info-section">
+                    <h2>Inne narzędzia do wyszukiwania słów</h2>
+                    <p>Jeśli szukasz słów do krzyżówek, zapraszamy na specjalny serwis <a href="https://haslator.pl" target="_blank" rel="noopener">haslator.pl</a> oferujący zaawansowane wyszukiwanie haseł krzyżówkowych.</p>
+                    <p>Jeżeli potrzebujesz zaawansowanego wyszukiwania słów z liter według wzorców, z blankami itp., zapraszamy na <a href="https://poocoo.pl" target="_blank" rel="noopener">poocoo.pl</a></p>
+                </div>
+            </div>
+
+            <div class="loading hidden" id="loading">Wyszukiwanie...</div>
+            <div class="error hidden" id="error"></div>
+            <div class="results hidden" id="results"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Serwis grupy <a href="https://poocoo.pl" target="_blank" rel="noopener">poocoo</a></p>
+        <div class="footer-links">
+            <span>Projekt opensource</span>
+            <a href="https://github.com/tjaworski997/anagramator.pl" target="_blank" rel="noopener" class="github-icon" aria-label="Zobacz projekt na GitHub">
+                <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                </svg>
+                GitHub
+            </a>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
